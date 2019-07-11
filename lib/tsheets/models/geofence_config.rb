@@ -1,4 +1,4 @@
-class TSheets::Models::GeofenceConfigs < TSheets::Model
+class TSheets::Models::GeofenceConfig < TSheets::Model
   field :id, :integer
   field :type, :string
   field :type_id, :integer
@@ -7,5 +7,4 @@ class TSheets::Models::GeofenceConfigs < TSheets::Model
   field :radius, :integer
   field :last_modified, :datetime
   field :created, :datetime
-  model :location, type: :locations, foreign: :type_id, primary: :id
 end

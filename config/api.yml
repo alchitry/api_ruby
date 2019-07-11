@@ -182,6 +182,18 @@ objects:
     last_modified: datetime
     created: datetime
     required_customfields: [ integer ]
+  geofence_config:
+    id: integer
+    user_id: integer
+    accuracy: integer
+    altitude: float
+    latitude: float
+    longitude: float
+    speed: float
+    heading: integer
+    source: string
+    device_identifier: string
+    created: datetime
   geolocation:
     id: integer
     user_id: integer
@@ -194,6 +206,26 @@ objects:
     source: string
     device_identifier: string
     created: datetime
+  location:
+    id: integer
+    addr1: string
+    addr2: string
+    city: string
+    state: string
+    zip: string
+    country: string
+    active: boolean
+    latitude: float
+    longitude: float
+    place_id: integer
+    place_id_hash:  string
+    label: string
+    notes: string
+    geocodeing_status: string
+    created: datetime
+    last_modified: datetime
+    linked_objects: :raw
+    geofence_config_id: integer
 endpoints:
   notifications:
     url: "/notifications"
@@ -274,6 +306,36 @@ endpoints:
       user_id: integer
       modified_before: datetime
       modified_since: datetime
+  geofence_configs:
+    url: "/geofence_configs"
+    object: geofence_config
+    actions:
+      - list
+    filters:
+      ids: integer[]
+      type: string
+      type_ids: integer[]
+      enabled: boolean
+      active: string
+      modified_before: datetime
+      modified_since: datetime
+      per_page: integer
+      page: integer
+      by_jobcode_assignment: boolean
+  locations:
+    url: "/locations"
+    object: location
+    actions:
+      - list
+    filters:
+      ids: integer[]
+      active: string
+      geocoding_status: string
+      modified_before: datetime
+      modified_since: datetime
+      per_page: integer
+      page: integer
+      by_jobcode_assignment: boolean
   geolocations:
     url: "/geolocations"
     object: geolocation

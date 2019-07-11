@@ -10,5 +10,4 @@ class TSheets::Models::Geolocation < TSheets::Model
   field :source, :string
   field :device_identifier, :string
   field :created, :datetime
-  
 end

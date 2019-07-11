@@ -1,4 +1,4 @@
-class TSheets::Models::Locations < TSheets::Model
+class TSheets::Models::Location < TSheets::Model
   field :id, :integer
   field :addr1, :string
   field :addr2, :string
@@ -16,6 +16,6 @@ class TSheets::Models::Locations < TSheets::Model
   field :geocoding_status, :string
   field :created, :datetime
   field :last_modified, :datetime
-  field :linked_objects, :raw
+  field :linked_objects, :object
   field :geofence_config_id, :integer
 end

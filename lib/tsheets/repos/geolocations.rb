@@ -1,7 +1,7 @@
 class TSheets::Repos::Geolocations < TSheets::Repository
   url "/geolocations"
   model TSheets::Models::Geolocation
-  actions :list, :add
+  actions :list
   filter :ids, [ :integer ]
   filter :modified_before, :datetime
   filter :modified_since, :datetime
