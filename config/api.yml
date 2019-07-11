@@ -313,7 +313,7 @@ endpoints:
       - list
     filters:
       ids: integer[]
-      type: string[]a
+      type: string[]
       type_ids: integer[]
       enabled: boolean
       active: string
