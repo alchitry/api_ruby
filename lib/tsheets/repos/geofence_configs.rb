@@ -3,7 +3,7 @@ class TSheets::Repos::GeofenceConfigs < TSheets::Repository
   model TSheets::Models::GeofenceConfig
   actions :list, :add
   filter :ids, [ :integer ]
-  filter :type, :string
+  filter :type, [] :string ]
   filter :type_ids, [ :integer ]
   filter :enabled, :boolean
   filter :active, :string
