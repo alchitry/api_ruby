@@ -19,7 +19,7 @@ class TSheets::Repository
   end
 
   def filters
-    @@filters
+    self.class.filters
   end
 
   def with_action(action, &block)
@@ -73,11 +73,21 @@ class TSheets::Repository
       options.each do |name, value|
         validate_option name, value
       end
+    }.call && clean_arrays(options)
+  end
+
+  def clean_arrays(options)
+    -> {
+      options.each do |name, value|
+        if value.is_a? Array
+          options[name] = value.join(",")
+        end
+      end
     }.call && options
   end
 
   def validate_option(name, value)
-    type_spec = @@filters[name]
+    type_spec = filters[name]
     raise TSheets::FilterNotAvailableError, "Unknown filter for #{self.class} - #{name}" if type_spec.nil?
     if type_spec.is_a?(Array)
       if !value.is_a?(Array)
@@ -100,6 +110,8 @@ class TSheets::Repository
   end
 
   class << self
+    attr_reader :filters
+
     def url address
       define_method :url do
         address
@@ -122,12 +134,12 @@ class TSheets::Repository
     end
 
     def filter fname, type
-      @@filters ||= {}
-      @@filters[fname] = type
+      @filters ||= {}
+      @filters[fname] = type
     end
 
     def filters
-      @@filters
+      @filters
     end
 
     def inherited(child)
