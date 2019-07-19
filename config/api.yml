@@ -462,7 +462,7 @@ endpoints:
     filters:
       ids: integer[]
       usernames: string[]
-      active: boolean
+      active: string
       first_name: string
       last_name: string
       modified_before: datetime

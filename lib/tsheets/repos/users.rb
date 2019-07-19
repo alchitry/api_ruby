@@ -4,7 +4,7 @@ class TSheets::Repos::Users < TSheets::Repository
   actions :list, :add, :edit
   filter :ids, [ :integer ]
   filter :usernames, [ :string ]
-  filter :active, :boolean
+  filter :active, :string
   filter :first_name, :string
   filter :last_name, :string
   filter :modified_before, :datetime
