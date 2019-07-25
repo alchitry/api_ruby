@@ -8,7 +8,7 @@ class TSheets::Repos::Timesheets < TSheets::Repository
   filter :jobcode_ids, [ :integer ]
   filter :user_ids, [ :integer ]
   filter :group_ids, [ :integer ]
-  filter :on_the_clock, :boolean
+  filter :on_the_clock, :string
   filter :jobcode_type, :string
   filter :modified_before, :datetime
   filter :modified_since, :datetime

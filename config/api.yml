@@ -446,7 +446,7 @@ endpoints:
       jobcode_ids: integer[]
       user_ids: integer[]
       group_ids: integer[]
-      on_the_clock: boolean
+      on_the_clock: string
       jobcode_type: string
       modified_before: datetime
       modified_since: datetime
